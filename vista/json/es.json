@@ -1,0 +1,61 @@
+{
+    "buttons":{
+        "save":"Guardar",
+        "edit":"Editar",
+        "delete":"Eliminar",
+        "clean":"Limpiar"
+    },
+    "home":{
+        "future": "De cara al futuro",
+        "transformation": "Somos habilitadores de tu transformación digital",
+        "faithTittle":"Princio",    
+        "faith": "Realizamos un ejercicio de fe y reconocemos un Ser superior como parte integral del desarrollo humano que nos lleva a alcanzar plenitud y felicidad. Creemos en que cada uno de nosotros da lo mejor de sí.  Somos socialmente responsables, propendemos un trabajo ético y nos conectamos con problemáticas sociales.",
+        "valueTittle":"Valor",
+        "values": "Trabajamos de manera colaborativa, como un grupo, entendiendo las necesidades de nuestros clientes para asegurar y exceder los objetivos propuestos."
+    },
+    "navbar": {
+        "home": "Inicio",
+        "profile": "Perfil",
+        "inventory":"Inventario",
+        "exit":"Salir",
+        "rented":"PCs Alquilados",
+        "licensing":"Formulario licenciamiento",
+        "user":"Usuario",
+        "role":"Rol"
+    },
+    "profile":{
+        "about":"Acerca de",
+        "roles":"Roles",
+        "name":"Nombre",
+        "email":"Correo",
+        "activeRoles":"Roles activos",
+        "inactiveRoles":"Roles Inactivos",
+        "description":"Descripción",
+        "pages":"Páginas de interés",
+        "social":"Redes sociales Echez",
+        "descriptionAdminGlobal":"Permisos para realizar cualquier operación, incluyendo el control sobre los usuarios y roles",
+        "descriptionAdmin":"Permisos para el control absoluto de la página, excepto el control sobre los usuarios y roles",
+        "descriptionITProject":"Acceso a los proyectos de TI",
+        "descriptionAnalytics":"Acceso a los proyectos de analítica",
+        "descriptionInventory":"Acceso al inventario de computadoras",
+        "descriptionApprovals":"Acceso a aprobaciones de licencias"
+    },
+    "rented":{
+        "addPc":"Agregar nuevo PC",
+        "active":"Activos",
+        "inactive":"Inactivos",
+        "all":"Todos",
+        "userName":"Nombre de usuario",
+        "pcName":"Nombre PC",
+        "installationDate":"Fecha de instalación",
+        "platePc":"Placa PC",
+        "specifications":"Especificaciones",
+        "desktop":"Escritorio",
+        "laptop":"Portatil",
+        "domain":"Dominio",
+        "statusPc":"Estado PC",
+        "dateUpdated":"Fecha actualizada",
+        "actions":"Acciones"
+    }
+    
+}

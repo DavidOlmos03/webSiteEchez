@@ -1,0 +1,61 @@
+{
+    "buttons":{
+        "save":"Save",
+        "edit":"Edit",
+        "delete":"Delete",
+        "clean":"Clean"
+    },
+    "home": {
+        "future": "Facing the Future",
+        "transformation": "We are enablers of your digital transformation",
+        "faithTittle":"Faith", 
+        "faith": "We carry out an exercise of faith and recognize a higher Being as an integral part of human development that leads us to achieve fulfillment and happiness. We believe that each one of us gives our best. We are socially responsible, we promote ethical work and we connect with social problems..",
+        "valueTittle":"Value",
+        "values": "We work collaboratively, as a group, understanding the needs of our clients to ensure and exceed the proposed objectives."
+    },
+    "navbar":{
+        "home": "Home",
+        "profile": "Profile",
+        "inventory":"Inventory",
+        "exit":"Exit",
+        "rented":"Rented PCs",
+        "licensing":"Licensing form",
+        "user":"User",
+        "role":"Role"
+    },
+    "profile":{
+        "about":"About",
+        "roles":"Roles",
+        "name":"Name",
+        "email":"Email",
+        "activeRoles":"Active roles",
+        "inactiveRoles":"Inactive roles",
+        "description":"Description",
+        "pages":"Pages of interest",
+        "social":"Echez social networks",
+        "descriptionAdminGlobal":"Permissions to perform any operation, including control over users and roles",
+        "descriptionAdmin":"Permissions for absolute control of the page, except control over users and roles",
+        "descriptionITProject":"Access to IT projects",
+        "descriptionAnalytics":"Access to analytics projects",
+        "descriptionInventory":"Access to computer inventory",
+        "descriptionApprovals":"Access to license approvals"
+    },
+    "rented":{
+        "addPc":"Add new PC",
+        "active":"Active",
+        "inactive":"Inactive",
+        "all":"All",
+        "userName":"User Name",
+        "pcName":"PC Name",
+        "installationDate":"Instalation date",
+        "platePc":"Plate PC",
+        "specifications":"Specifications",
+        "desktop":"Desktop",
+        "laptop":"Laptop",
+        "domain":"Domain",
+        "statusPc":"Status PC",
+        "dateUpdated":"Date updated",
+        "actions":"Actions"
+    }
+
+}

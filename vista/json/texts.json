@@ -1,0 +1,47 @@
+{
+    "es": {
+      "home": "Inicio",
+      "profile": "Perfil",
+      "inventory":"Inventario",
+      "exit":"Salir",
+      "rented":"PCs Alquilados",
+      "licensing":"Formulario licenciamiento",
+      "user":"Usuario",
+      "role":"Rol",
+      "future": "De cara al futuro",
+      "transformation": "Somos habilitadores de tu transformación digital",
+      "faithTittle":"Princio",    
+      "faith": "Realizamos un ejercicio de fe y reconocemos un Ser superior como parte integral del desarrollo humano que nos lleva a alcanzar plenitud y felicidad. Creemos en que cada uno de nosotros da lo mejor de sí.  Somos socialmente responsables, propendemos un trabajo ético y nos conectamos con problemáticas sociales.",
+      "valueTittle":"Valor",
+      "values": "Trabajamos de manera colaborativa, como un grupo, entendiendo las necesidades de nuestros clientes para asegurar y exceder los objetivos propuestos.",
+      "descriptionAdminGlobal":"Permisos para realizar cualquier operación, incluyendo el control sobre los usuarios y roles",
+      "descriptionAdmin":"Permisos para el control absoluto de la página, excepto el control sobre los usuarios y roles",
+      "descriptionITProject":"Acceso a los proyectos de TI",
+      "descriptionAnalytics":"Acceso a los proyectos de analítica",
+      "descriptionInventory":"Acceso al inventario de computadoras",
+      "descriptionApprovals":"Acceso a aprobaciones de licencias"
+    },
+    "en": {
+      "home": "Home",
+      "profile": "Profile",
+      "inventory":"Inventory",
+      "exit":"Exit",
+      "rented":"Rented PCs",
+      "licensing":"Licensing form",
+      "user":"User",
+      "role":"Role",
+      "future": "Facing the Future",
+      "transformation": "We are enablers of your digital transformation",
+      "faithTittle":"Faith", 
+      "faith": "We carry out an exercise of faith and recognize a higher Being as an integral part of human development that leads us to achieve fulfillment and happiness. We believe that each one of us gives our best. We are socially responsible, we promote ethical work and we connect with social problems..",
+      "valueTittle":"Value",
+      "values": "We work collaboratively, as a group, understanding the needs of our clients to ensure and exceed the proposed objectives.",
+      "descriptionAdminGlobal":"Permissions to perform any operation, including control over users and roles",
+      "descriptionAdmin":"Permissions for absolute control of the page, except control over users and roles",
+      "descriptionITProject":"Access to IT projects",
+      "descriptionAnalytics":"Access to analytics projects",
+      "descriptionInventory":"Access to computer inventory",
+      "descriptionApprovals":"Access to license approvals"
+    }
+  }
+  

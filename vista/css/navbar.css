@@ -1,0 +1,56 @@
+img {
+    width: 200px;
+    height: 80px;
+    padding-left: 2%;
+}
+
+.navbar-nav {
+    padding-left: 60%;
+}
+.exit-button {
+    padding-left: 20%;
+}
+
+
+.flagButton{
+    margin-left: 15px;
+}
+.flagButton button{
+    max-width: 50px;
+    max-height: 50px;
+    border:none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button:active,
+button:focus {
+    outline: none;
+}
+
+.flagButton button img{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+/* Estilo para el enlace y el botón dentro del enlace */
+.nav-link button {
+    outline: none; /* Eliminar el resaltado del borde */
+    border: none; /* Eliminar el borde del botón */
+    background-color: transparent; /* Hacer el fondo transparente */
+    cursor: pointer; /* Cambiar el cursor a una mano para indicar que es interactivo */
+  }
+
+
+@media only screen and (max-width: 989px) {
+.navbar-nav {
+    padding-left: 3%;
+}  
+.exit-button {
+    padding-left: 0%;
+}
+}
+  
