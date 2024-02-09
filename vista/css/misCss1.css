@@ -30,6 +30,10 @@ body {
 	gap: 30%;
 }
 */
+th:hover{
+	/*color: #243d84;*/
+	background-color: #243e8473;
+}
 .table-wrapper {
 	background: #fff;
 	padding: 20px 25px;
@@ -244,4 +248,26 @@ table.table .avatar {
 }	
 .modal form label {
 	font-weight: normal;
+}
+
+/**Estilos unicamente para vistaAlquilados*/
+/*.active-text:hover,
+.inactive-text:hover,
+.all-text:hover{
+	background-color: #243e8473;
+}*/
+
+.active-text:hover,
+.active-text.active {
+    background-color: #243e8473;
+}
+
+.inactive-text:hover,
+.inactive-text.active {
+    background-color: #243e8473;
+}
+
+.all-text:hover,
+.all-text.active {
+    background-color: #243e8473;
 }

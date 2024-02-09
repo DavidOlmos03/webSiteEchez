@@ -15,13 +15,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 
-  <img src="http://localhost/webSiteEchez/vista/img/Logo-Horizontal.png"></img>
+  <img id="echezGroup" src="http://localhost/webSiteEchez/vista/img/Logo-Horizontal.png"></img>
    <!--
             Boton para realizar el cambio de idioma
     -->
     <div class="flagButton">
-      <button onclick="changeLanguage('es')"><img src="http://localhost/webSiteEchez/vista/img/es1x1.svg"></img></button>
-      <button onclick="changeLanguage('en')"><img src="http://localhost/webSiteEchez/vista/img/us1x1.svg"></img></button>
+      <button onclick="changeLanguage('es')"><img id="spanishFlag" src="http://localhost/webSiteEchez/vista/img/es1x1.svg"></img></button>
+      <button onclick="changeLanguage('en')"><img id="englishFlag" src="http://localhost/webSiteEchez/vista/img/us1x1.svg"></img></button>
     </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

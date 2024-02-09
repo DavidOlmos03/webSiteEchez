@@ -74,6 +74,8 @@ function updateContent() {
       $('.active-text').text(data[section].active);
       $('.inactive-text').text(data[section].inactive);
       $('.all-text').text(data[section].all);
+      $('.rentedPC-text').text(data[section].rentedPC);
+      $('.pcData-text').text(data[section].pcData);
       $('.userName-text').text(data[section].userName);
       $('.pcName-text').text(data[section].pcName);
       $('.installationDate-text').text(data[section].installationDate);
@@ -85,7 +87,41 @@ function updateContent() {
       $('.statusPc-text').text(data[section].statusPc);
       $('.dateUpdated-text').text(data[section].dateUpdated);
       $('.actions-text').text(data[section].actions);
+       /**
+     * Para Licenciamiento principal/
+     */
+      section='licensing';
+      $('.licensingWord-text').text(data[section].licensing);
+      $('.applicant-text').text(data[section].applicant);
+      $('.area-text').text(data[section].area);
+      $('.licenseType-text').text(data[section].licenseType);
+      $('.budget-text').text(data[section].budget);
+      $('.cost-text').text(data[section].cost);
+      $('.startDate-text').text(data[section].startDate);
+      $('.endDate-text').text(data[section].endDate);
+      $('.constCenter-text').text(data[section].constCenter);
+      $('.quantity-text').text(data[section].quantity);
+      $('.data-text').text(data[section].data);
+
+      /**
+       * Para Usuario principal/
+       */
+      section='users';
+      $('.management-text').text(data[section].management);
+      $('.user-text').text(data[section].user);
+      $('.newUser-text').text(data[section].newUser);
+      $('.name-text').text(data[section].name);
+      $('.email-text').text(data[section].email);
+      $('.password-text').text(data[section].password);
+      $('.dataUser-text').text(data[section].dataUser);
+      $('.userRoles-text').text(data[section].userRoles);
+      $('.allRoles-text').text(data[section].allRoles);
+      $('.specificRoles-text').text(data[section].specificRoles);
+      $('.addItem-text').text(data[section].addItem);
+      $('.removeItem-text').text(data[section].removeItem);
     });
+   
+
 }
 
 // Call updateContent() on page load

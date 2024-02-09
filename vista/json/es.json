@@ -45,6 +45,8 @@
         "active":"Activos",
         "inactive":"Inactivos",
         "all":"Todos",
+        "rentedPC":"PC Alquilado",
+        "pcData":"Datos del PC",
         "userName":"Nombre de usuario",
         "pcName":"Nombre PC",
         "installationDate":"Fecha de instalación",
@@ -56,6 +58,33 @@
         "statusPc":"Estado PC",
         "dateUpdated":"Fecha actualizada",
         "actions":"Acciones"
+    },
+    "licensing":{
+        "licensing":"Licenciamiento",
+        "applicant":"Solicitante",
+        "area":"Área",
+        "licenseType":"Tipo licencia",
+        "budget":"Presupuesto",
+        "cost":"Costo",
+        "startDate":"Fecha Inicio",
+        "endDate":"Fecha Fin",
+        "constCenter":"Centro de costos",
+        "quantity":"Cantidad",
+        "data":"Datos"
+    },
+    "users":{
+        "management":"Gestión usuarios",
+        "user":"Usuario",
+        "newUser":"Nuevo usuario",
+        "name":"Nombre",
+        "email":"Correo",
+        "password":"Contraseña",
+        "dataUser":"Datos del usuario",
+        "userRoles":"Roles del usuario",
+        "allRoles":"Todos los roles",
+        "specificRoles":"Roles especificos del usuario",
+        "addItem":"Agregar item",
+        "removeItem":"Remover item"
     }
     
 }

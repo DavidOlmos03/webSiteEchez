@@ -139,7 +139,7 @@ ob_start();
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Licenciamiento</title>
+<title class="licensingWord-text">Licenciamiento</title>
 <link rel="shortcut icon" href="../img/logo-DBD-01.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -181,10 +181,10 @@ ob_start();
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2 class="table-title-name"><b>Licenciamiento</b></h2>
+						<h2 class="table-title-name"><b class="licensingWord-text">Licenciamiento</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#crudModal" class="btn btn-gestion" data-toggle="modal"><i class="material-icons">&#xE84E;</i> <span>Formulario licenciamiento</span></a>						
+						<a href="#crudModal" class="btn btn-gestion" data-toggle="modal"><i class="material-icons">&#xE84E;</i> <span class="licensing-text">Formulario licenciamiento</span></a>						
 					</div>
 				</div>
 			</div>
@@ -209,17 +209,17 @@ ob_start();
 							</span>
 						</th>
 						<!--<th>Id</th>-->
-						<th>Solicitante</th>
-						<th>Área</th>
+						<th class="applicant-text">Solicitante</th>
+						<th class="area-text">Área</th>
 						<!--<th>SW</th>-->
-						<th>Tipo licencia</th>
-						<th>Presupuesto</th>
-						<th>Costo</th>
-						<th>Fecha Inicio</th>
-						<th>Fecha Fin</th>
-						<th>Centro de costos</th>
-						<th>Cantidad</th>
-						<th style="width:20px;">Actions</th>
+						<th class="licenseType-text">Tipo licencia</th>
+						<th class="budget-text">Presupuesto</th>
+						<th class="cost-text">Costo</th>
+						<th class="startDate-text">Fecha Inicio</th>
+						<th class="endDate-text">Fecha Fin</th>
+						<th class="constCenter-text">Centro de costos</th>
+						<th class="quantity-text">Cantidad</th>
+						<th class="actions-text" style="width:20px;">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -262,7 +262,7 @@ ob_start();
 		<div class="modal-content">
 			<form action="vistaLicenciamiento.php" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">Formulario licenciamiento</h4>
+					<h4 class="modal-title licensing-text">Formulario licenciamiento</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -271,7 +271,7 @@ ob_start();
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#home">Datos</a>
+							<a class="nav-link active data-text" data-toggle="tab" href="#home">Datos</a>
 							</li>
 							<!--<li class="nav-item">
 							<a class="nav-link" data-toggle="tab" href="#menu1">Roles por usuario</a>
@@ -285,12 +285,12 @@ ob_start();
 									value="<?php echo $Id ?>" style="border-radius: 10px" hidden>
 							<div class="row">
 							    <div class="form-group col-md-6">
-								<label>Solicitante</label>
+								<label class="applicant-text">Solicitante</label>
 									<input type="text" id="txtApplicant" name="txtApplicant" class="form-control" 
 									value="<?php echo $Applicant ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Área</label>
+									<label class="area-text">Área</label>
 									<input type="text" id="txtArea" name="txtArea" class="form-control" 
 									value="<?php echo $Area ?>" style="border-radius: 10px">
 								</div>							
@@ -298,37 +298,37 @@ ob_start();
 							<div class="row">	
 								
 								<div class="form-group col-md-6">
-									<label>Fecha inicio</label>
+									<label class="startDate-text">Fecha inicio</label>
 									<input type="date" id="txtStartDate" name="txtStartDate" class="form-control" 
 									value="<?php echo $StartDate ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Fecha fin</label>
+									<label class="endDate-text">Fecha fin</label>
 									<input type="date" id="txtEndDate" name="txtEndDate" class="form-control" 
 									value="<?php echo $EndDate ?>" style="border-radius: 10px">
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Tipo licencia</label>
+								<label class="licenseType-text">Tipo licencia</label>
 									<input type="txt" id="txtLicenseType" name="txtLicenseType" class="form-control" 
 									value="<?php echo $LicenseType ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Presupuesto</label>
+									<label class="budget-text">Presupuesto</label>
 									<input type="int" id="txtBudget" name="txtBudget" class="form-control" 
 									value="<?php echo $Budget ?>" style="border-radius: 10px">
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Cantidad</label>
+								<label class="quantity-text">Cantidad</label>
 									<input type="Ram" id="txtQuantity" name="txtQuantity" class="form-control" 
 									value="<?php echo $Quantity ?>" style="border-radius: 10px">
 								</div>
 								
 								<div class="form-group col-md-6">
-									<label>Centro de costos</label>
+									<label class="constCenter-text">Centro de costos</label>
 									<select id="txtCostCenter" name="txtCostCenter" class="form-control" style="border-radius: 10px">
 										<option <?php echo ($CostCenter === 'CPK') ? 'selected' : ''; ?>>CPK</option>
 										<option <?php echo ($CostCenter === 'Echez') ? 'selected' : ''; ?>>Echez</option>
@@ -337,7 +337,7 @@ ob_start();
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Costo</label>
+								<label class="cost-text">Costo</label>
 									<input type="Ram" id="txtCost" name="txtCost" class="form-control" 
 									value="<?php echo $Cost ?>" style="border-radius: 10px">
 								</div>					
@@ -365,7 +365,7 @@ ob_start();
 		<div class="modal-content">
 			<form action="vistaLicenciamiento.php" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">Formulario licenciamiento</h4>
+					<h4 class="modal-title licensing-text">Formulario licenciamiento</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -374,7 +374,7 @@ ob_start();
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#homeEdit">Datos</a>
+							<a class="nav-link active data-text" data-toggle="tab" href="#homeEdit">Datos</a>
 							</li>
 							<!--<li class="nav-item">
 							<a class="nav-link" data-toggle="tab" href="#menu1">Roles por usuario</a>
@@ -388,12 +388,12 @@ ob_start();
 									value="<?php echo $Id ?>" style="border-radius: 10px" hidden>
 							<div class="row">
 							    <div class="form-group col-md-6">
-								<label>Solicitante</label>
+								<label class="applicant-text">Solicitante</label>
 									<input type="text" id="txtApplicantEdit" name="txtApplicant" class="form-control" 
 									value="<?php echo $Applicant ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Área</label>
+									<label class="area-text">Área</label>
 									<input type="text" id="txtAreaEdit" name="txtArea" class="form-control" 
 									value="<?php echo $Area ?>" style="border-radius: 10px">
 								</div>							
@@ -401,37 +401,37 @@ ob_start();
 							<div class="row">	
 								
 								<div class="form-group col-md-6">
-									<label>Fecha inicio</label>
+									<label class="startDate-text">Fecha inicio</label>
 									<input type="date" id="txtStartDateEdit" name="txtStartDate" class="form-control" 
 									value="<?php echo $StartDate ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Fecha fin</label>
+									<label class="endDate-text">Fecha fin</label>
 									<input type="date" id="txtEndDateEdit" name="txtEndDate" class="form-control" 
 									value="<?php echo $EndDate ?>" style="border-radius: 10px">
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Tipo licencia</label>
+								<label class="licenseType-text">Tipo licencia</label>
 									<input type="txt" id="txtLicenseTypeEdit" name="txtLicenseType" class="form-control" 
 									value="<?php echo $LicenseType ?>" style="border-radius: 10px">
 								</div>
 								<div class="form-group col-md-6">
-									<label>Presupuesto</label>
+									<label class="budget-text">Presupuesto</label>
 									<input type="int" id="txtBudgetEdit" name="txtBudget" class="form-control" 
 									value="<?php echo $Budget ?>" style="border-radius: 10px">
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Cantidad</label>
+								<label class="quantity-text">Cantidad</label>
 									<input type="Ram" id="txtQuantityEdit" name="txtQuantity" class="form-control" 
 									value="<?php echo $Quantity ?>" style="border-radius: 10px">
 								</div>
 								
 								<div class="form-group col-md-6">
-									<label>Centro de costos</label>
+									<label class="constCenter-text">Centro de costos</label>
 									<select id="txtCostCenterEdit" name="txtCostCenter" class="form-control" style="border-radius: 10px">
 										<option <?php echo ($CostCenter === 'CPK') ? 'selected' : ''; ?>>CPK</option>
 										<option <?php echo ($CostCenter === 'Echez') ? 'selected' : ''; ?>>Echez</option>
@@ -440,7 +440,7 @@ ob_start();
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
-								<label>Costo</label>
+								<label class="cost-text">Costo</label>
 									<input type="Ram" id="txtCostEdit" name="txtCost" class="form-control" 
 									value="<?php echo $Cost ?>" style="border-radius: 10px">
 								</div>					

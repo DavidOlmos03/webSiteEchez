@@ -175,11 +175,12 @@ ob_start();
 		} else if ($navbar==1) {require('../navbar_admin.php');}
 		?>
     </div>
+	<!--
 	<script>
 		$(document).ready( function () {
 			$('#tableId').DataTable();
 		} );
-	</script>
+	</script>-->
 	<div class="table-responsive">
 		
 		<div class="table-wrapper">
@@ -194,17 +195,25 @@ ob_start();
 				</div>				
 			</div>
 			<div class="row">
+				<div class="col-sm-6">						
+					<button id="btnActivos" class="btn btn-activos active-text" data-status="activos"><span>Activos</span></button>
+					|
+					<button id="btnInactivos" class="btn btn-inactivos inactive-text" data-status="inactivos"><span>Inactivos</span></button>
+					|
+					<button id="btnTodos" class="btn btn-inactivos all-text" data-status=""><span>Todos</span></button>
+				</div>
+				<!--
 					<div class="col-sm-6">						
 						<a class="btn btn-activos active-text" href="vistaAlquilado.php?status=activos"><span>Activos</span></a>
 						|
 						<a class="btn btn-inactivos inactive-text" href="vistaAlquilado.php?status=inactivos"><span>Inactivos</span></a>
 						|
 						<a class="btn btn-inactivos all-text" href="vistaAlquilado.php?status=''"><span>Todos</span></a>
-					</div>
+					</div>-->
 					<div class="col-sm-6">
 						
 					</div>
-				</div>
+			</div>
 			<!--
 				Buscador
 			
@@ -215,17 +224,10 @@ ob_start();
 				<hr>
 				</form>
 			</div>-->
+			
 			<table class="table table-striped table-hover table_id" id="tableId">
 				<thead>
 					<tr>
-						<!--
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th>-->
-						<!--<th>Id</th>-->
 						<th class="user-text">Usuario</th>
 						<th>Serial</th>
 						<th class="pcName-text">Nombre PC</th>
@@ -240,7 +242,7 @@ ob_start();
 						<th style="width:20px;" class="actions-text">Actions</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="tbody">
 					<?php
 					for($i = 0; $i < count($arregloAlquilado); $i++){
 					?>
@@ -284,7 +286,7 @@ ob_start();
 		<div class="modal-content">
 			<form action="vistaAlquilado.php" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">PC Alquilado</h4>
+					<h4 class="modal-title rentedPC-text">PC Alquilado</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -293,7 +295,7 @@ ob_start();
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#home">Datos del PC</a>
+							<a class="nav-link active pcData-text" data-toggle="tab" href="#home">Datos del PC</a>
 							</li>							
 						</ul>
 						<!-- Tab panes -->
@@ -378,7 +380,7 @@ ob_start();
 								<div class="form-group">
 									<button type="button" id="btnGuardar" name="bt" class="btn btn-success save-text"	onclick="PostAlert()">Guardar</button>				
 									
-									<input type="submit" id="btnLimpiar" name="bt" class="btn" value="Limpiar">
+									<input type="submit" id="btnLimpiar" name="bt" class="btn clear-text" value="Limpiar">
 								</div>
 							</div>																					
 						</div>
@@ -396,7 +398,7 @@ ob_start();
 		<div class="modal-content">
 			<form action="vistaAlquilado.php" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">PC Alquilado</h4>
+					<h4 class="modal-title rentedPC-text">PC Alquilado</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -405,7 +407,7 @@ ob_start();
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#homeEdit">Datos del PC</a>
+							<a class="nav-link active pcData-text" data-toggle="tab" href="#homeEdit">Datos del PC</a>
 							</li>						
 						</ul>
 						<!-- Tab panes -->

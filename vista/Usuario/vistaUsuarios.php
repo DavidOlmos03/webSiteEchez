@@ -200,10 +200,10 @@ ob_start();
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2 class="table-title-name">Gestión <b>Usuarios</b></h2>
+						<h2 class="table-title-name"><b class="management-text">Gestión usuarios</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#crudModal" class="btn btn-gestion" data-toggle="modal"><i class="material-icons">&#xe147;</i> <span>Nuevo usuario</span></a>
+						<a href="#crudModal" class="btn btn-gestion" data-toggle="modal"><i class="material-icons">&#xe147;</i> <span class="newUser-text">Nuevo usuario</span></a>
 						
 					</div>
 				</div>
@@ -227,10 +227,10 @@ ob_start();
 								<label for="selectAll"></label>
 							</span>
 						</th>
-						<th>Nombre</th>
-						<th>Correo</th>
+						<th class="name-text">Nombre</th>
+						<th class="email-text">Correo</th>
 						<!--<th>Contraseña</th>-->
-						<th>Actions</th>
+						<th class="actions-text">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -271,7 +271,7 @@ ob_start();
 		<div class="modal-content">
 			<form action="vistaUsuarios.php" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">Usuario</h4>
+					<h4 class="modal-title user-text">Usuario</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -280,10 +280,10 @@ ob_start();
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#home">Datos de usuario</a>
+							<a class="nav-link active dataUser-text" data-toggle="tab" href="#home">Datos de usuario</a>
 							</li>
 							<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#menu1">Roles por usuario</a>
+							<a class="nav-link userRoles-text" data-toggle="tab" href="#menu1">Roles por usuario</a>
 							</li>
 						</ul>
 						<!-- Tab panes -->
@@ -293,19 +293,19 @@ ob_start();
 								<input type="int" id="txtId" name="txtId" class="form-control" value="<?php echo $Id ?>" hidden>
 								
 								<div class="form-group">
-								<label>Email</label>
+								<label class="email-text">Email</label>
 									<input type="email" id="txtEmail" name="txtEmail" class="form-control" value="<?php echo $Email ?>" required>
 								</div>
 								<div class="form-group">
-								<label>Nombre</label>
+								<label class="name-text">Nombre</label>
 									<input type="text" id="txtName" name="txtName" class="form-control" value="<?php echo $Name ?>" required>
 								</div>
 								<div class="form-group">
-									<label>Contraseña</label>
+									<label class="password-text">Contraseña</label>
 									<input type="password" id="txtPassword" name="txtPassword" class="form-control" value="<?php echo $Password ?>" required>
 								</div>
 								<div class="form-group">
-									<button type="button" id="btnGuardar" name="bt" class="btn btn-success"	onclick="PostAlertUser()">Guardar</button>
+									<button type="button" id="btnGuardar" name="bt" class="btn btn-success save-text"	onclick="PostAlertUser()">Guardar</button>
 									<!--<input type="submit" id="btnGuardar" name="bt" class="btn btn-success" value="Guardar">-->							
 									<input type="submit" id="btnLimpiar" name="bt" class="btn" value="Limpiar">
 								</div>
@@ -315,7 +315,7 @@ ob_start();
 							<div id="menu1" class="container tab-pane fade"><br>
 							<div class="container">
 								<div class="form-group">
-									<label for="combobox1">Todos los roles</label>
+									<label class="allRoles-text" for="combobox1">Todos los roles</label>
 								<select class="form-control" id="combobox1" name="combobox1">
 									<?php for($i=0; $i<count($arregloRoles); $i++){ ?>
 									<option value="<?php echo $arregloRoles[$i]->__get('Id').";". $arregloRoles[$i]->__get('Name'); ?>">
@@ -324,7 +324,7 @@ ob_start();
 									<?php } ?>
 								</select>
 								<br>
-								<label for="listbox1">Roles específicos del usuario</label>
+								<label class="specificRoles-text" for="listbox1">Roles específicos del usuario</label>
 								<select multiple class="form-control" id="listbox1" name="listbox1[]">
 									<?php for($i=0; $i<count($arregloRolesConsulta); $i++){ ?>
 									<option value="<?php echo $arregloRolesConsulta[$i]->__get('Id').";". $arregloRolesConsulta[$i]->__get('Name'); ?>">
@@ -334,8 +334,8 @@ ob_start();
 								</select>
 								</div>
 									<div class="form-group">
-										<button type="button" id="btnAgregarItem" name="bt" class="btn btn-success" onclick="agregarItem('combobox1', 'listbox1')">Agregar Item</button>
-										<button type="button" id="btnRemoverItem" name="bt" class="btn btn-success" onclick="removerItem('listbox1')">Remover Item</button>
+										<button type="button" id="btnAgregarItem" name="bt" class="btn btn-success addItem-text" onclick="agregarItem('combobox1', 'listbox1')">Agregar Item</button>
+										<button type="button" id="btnRemoverItem" name="bt" class="btn btn-success removeItem-text'" onclick="removerItem('listbox1')">Remover Item</button>
 									</div>
 								</div>
 							</div>

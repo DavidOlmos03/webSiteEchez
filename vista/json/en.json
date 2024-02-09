@@ -45,6 +45,8 @@
         "active":"Active",
         "inactive":"Inactive",
         "all":"All",
+        "rentedPC":"Rented PC",
+        "pcData":"PC Data",
         "userName":"User Name",
         "pcName":"PC Name",
         "installationDate":"Instalation date",
@@ -56,6 +58,34 @@
         "statusPc":"Status PC",
         "dateUpdated":"Date updated",
         "actions":"Actions"
+    },
+    "licensing":{
+        "licensing":"Licensing",
+        "applicant":"Applicant",
+        "area":"Area",
+        "licenseType":"License type",
+        "budget":"Budget",
+        "cost":"Cost",
+        "startDate":"Start date",
+        "endDate":"End date",
+        "constCenter":"Cost center",
+        "quantity":"Quantity",
+        "data":"Data"
+    },
+    "users":{
+        "management":"Users management",
+        "user":"User",
+        "newUser":"New User",
+        "name":"Name",
+        "email":"Email",
+        "password":"Password",
+        "dataUser":"Data user",
+        "userRoles":"User roles",
+        "allRoles":"All roles",
+        "specificRoles":"Specific user roles",
+        "addItem":"Add item",
+        "removeItem":"Remove item"
     }
+    
 
 }

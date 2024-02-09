@@ -98,3 +98,46 @@ async function PostAlert() {
     
 }
 
+// Inicializar DataTables después de cargar el contenido de la tabla
+$(document).ready(function() {
+    $('#tableId').DataTable();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll('.btn');
+
+    // Función para manejar los clics en los botones
+    function handleButtonClick(event) {
+        const status = event.target.getAttribute('data-status');
+        cargarContenido(status);
+    }
+
+    // Agregamos un event listener para cada botón
+    buttons.forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
+
+    // Función para cargar el contenido de la página correspondiente
+    function cargarContenido(status) {
+        // Realizar una solicitud AJAX para obtener el contenido de la página correspondiente
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Crear un elemento temporal para contener la respuesta AJAX
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = xhr.responseText;
+                
+                // Extraer el contenido del tbody
+                const tbodyContent = tempElement.querySelector('#tbody').innerHTML;
+                
+                // Actualizar el contenido del contenedor tbody con la respuesta AJAX
+                document.getElementById("tbody").innerHTML = tbodyContent;
+
+                // Re-inicializar DataTables después de actualizar el contenido
+                $('#tableId').DataTable();
+            }
+        };
+        xhr.open("GET", "vistaAlquilado.php?status=" + status, true);
+        xhr.send();
+    } 
+});

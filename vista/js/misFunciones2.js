@@ -85,31 +85,31 @@ async function alertPrueba() {
     alert("¡Hola desde JavaScript!");
 }
 
-async function exitAlert(){
-    Swal.fire({
-        title: "cerrar sesión?",
-        showDenyButton: true,
-        //showCancelButton: true,
-        confirmButtonText: "Salir",
-        denyButtonText: `Cancelar`
-      }).then((result) => {
+async function exitAlert() {
+  const currentLanguage = localStorage.getItem('selectedLanguage');
+  const title = currentLanguage === 'es' ? "¿Cerrar sesión?" : "Sign off?";
+  const confirmButtonText = currentLanguage === 'es' ? "Salir" : "Exit";
+  const denyButtonText = currentLanguage === 'es' ? "Cancelar" : "Cancel";
 
-        if (result.isConfirmed) {
-          var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                // Manejar la respuesta del servidor (opcional)
-                console.log(this.responseText); 
-                
-                 // Redirigir a la página de inicio de sesión después de cerrar la sesión
-                 window.location.href = "http://localhost/webSiteEchez/login.php";
-              }
-            };
+  const result = await Swal.fire({
+    title: title,
+    showDenyButton: true,
+    confirmButtonText: confirmButtonText,
+    denyButtonText: denyButtonText
+  });
 
-            xhttp.open("GET", "http://localhost/webSiteEchez/vista/cerrarSesion.php", true);
-            xhttp.send();   
-        }
-      });
+  if (result.isConfirmed) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        window.location.href = "http://localhost/webSiteEchez/login.php";
+      }
+    };
+
+    xhttp.open("GET", "http://localhost/webSiteEchez/vista/cerrarSesion.php", true);
+    xhttp.send();
+  }
 }
 
 
