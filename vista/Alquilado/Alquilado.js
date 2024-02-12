@@ -99,9 +99,21 @@ async function PostAlert() {
 }
 
 // Inicializar DataTables después de cargar el contenido de la tabla
+
 $(document).ready(function() {
-    $('#tableId').DataTable();
+    $('#tableId').DataTable({
+        dom: 'lBfrtip',
+        lengthMenu: [10, 25, 50, 75, 100], // Define las opciones del selector de cantidad de registros por vista
+        pageLength: 10, // Define la cantidad de registros por defecto por vista
+        buttons: [
+            {
+                extend:'excel',			
+                titleAttr:'Export to Excel'
+            }
+        ]            
+    });
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('.btn');

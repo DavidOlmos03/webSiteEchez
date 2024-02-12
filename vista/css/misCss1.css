@@ -256,6 +256,10 @@ table.table .avatar {
 .all-text:hover{
 	background-color: #243e8473;
 }*/
+.all-text:hover,
+.all-text.active {
+    background-color: #243e8473;
+}
 
 .active-text:hover,
 .active-text.active {
@@ -267,7 +271,7 @@ table.table .avatar {
     background-color: #243e8473;
 }
 
-.all-text:hover,
-.all-text.active {
-    background-color: #243e8473;
+/**Estilos unicamente para vistaLicenciamiento*/
+.dataTables_length {
+    margin-right: 10px; /* Puedes ajustar el valor según sea necesario */
 }

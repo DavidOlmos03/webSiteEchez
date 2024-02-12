@@ -145,19 +145,44 @@ ob_start();
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/misCss1.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!--
+	Script y estilos personalizodos
+-->
 <script src="../js/misFunciones2.js"></script>
 <script src="../Licenciamiento/Licenciamiento.js"></script>
 <script src="../js/buscador.js"></script>
+<link rel="stylesheet" href="../css/misCss1.css">
+
+<!--
+	Para utilizar Sweet Alert
+-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--
 	Para dataTable
 -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+<link href="https://cdn.datatables.net/1.13.10/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/autofill/2.6.0/css/autoFill.dataTables.css" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/1.13.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-egTjMzYkmIosY1LGfAjQyOetbIw8jx2pQ+y4khg9wSpYsl0G4VbH5p9vFGoRb5uxfdQWlCLzQ/LcT2UrjyoF9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+-->
+
 </head>
 <body>
 	<!--<script>alert('Usuario registrado');</script>-->
@@ -171,11 +196,22 @@ ob_start();
 		?>
     </div>
 	<script>
-		$(document).ready( function () {
-			$('#tableId').DataTable();
-		} );
-	</script>
-	<div class="table-responsive">
+    $(document).ready(function() {
+        $('#tableId').DataTable({
+            dom: 'lBfrtip',
+			lengthMenu: [10, 25, 50, 75, 100], // Define las opciones del selector de cantidad de registros por vista
+            pageLength: 10, // Define la cantidad de registros por defecto por vista
+            buttons: [
+				{
+					extend:'excel',			
+					titleAttr:'Export to Excel'
+				}
+            ]            
+        });
+    });
+</script>
+
+	<div class="table-responsive" style="margin-top: 5%">
 		
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -199,7 +235,7 @@ ob_start();
 				<hr>
 				</form>
 			</div>-->
-			<table class="table table-striped table-hover table_id" id="tableId">
+			<table class="table table-striped table-hover table_id" id="tableId" style="margin-top: 5%">
 				<thead>
 					<tr>
 						<th>
