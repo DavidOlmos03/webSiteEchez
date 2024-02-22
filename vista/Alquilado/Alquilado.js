@@ -1,13 +1,22 @@
+/**
+ * Función para realizar la edición de los datos de un elemento de la tabla
+ */
 async function editModal(IdElemento,TableName) {
-    // Realizar una solicitud AJAX 
+    /**
+     * Se realiza la solicitud AJAX
+     */ 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            // Manejar la respuesta del servidor
+            /**
+             * Se maneja la respuesta del servidor
+             */
              var data = JSON.parse(this.responseText);
 
-            // Llenar el formulario con los datos recibidos
+            /**
+             * Se llena el formulario con los datos recibidos
+             */
             document.getElementById('txtUser_NameEdit').value = data.User_Name;
             document.getElementById('txtSerialEdit').value = data.Serial;
             document.getElementById('txtPC_NameEdit').value = data.PC_Name;
@@ -20,7 +29,9 @@ async function editModal(IdElemento,TableName) {
             document.getElementById('txtStatus_PCEdit').value = data.Status_PC;
             document.getElementById('txtdateUpdate_DateEdit').value = data.dateUpdate_Date;
             
-            // Mostrar la ventana modal
+            /**
+             * Se muestra la ventana modal
+             */
             $('#crudModalEdit').modal('show');
         }
     };
@@ -108,10 +119,13 @@ $(document).ready(function() {
         buttons: [
             {
                 extend:'excel',			
-                titleAttr:'Export to Excel'
+                titleAttr:'Export to Excel',
+                text: '<i class="material-icons file-excel">description</i>' //Se añade el icono utilizando material-icons
             }
         ]            
     });
+
+   
 });
 
 
@@ -121,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para manejar los clics en los botones
     function handleButtonClick(event) {
         const status = event.target.getAttribute('data-status');
+        console.log(status);
         cargarContenido(status);
     }
 
@@ -140,10 +155,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 tempElement.innerHTML = xhr.responseText;
                 
                 // Extraer el contenido del tbody
-                const tbodyContent = tempElement.querySelector('#tbody').innerHTML;
+                const tbodyContent = tempElement.querySelector('#tableId').innerHTML;
                 
                 // Actualizar el contenido del contenedor tbody con la respuesta AJAX
-                document.getElementById("tbody").innerHTML = tbodyContent;
+                document.getElementById("tableId").innerHTML = tbodyContent;
 
                 // Re-inicializar DataTables después de actualizar el contenido
                 $('#tableId').DataTable();

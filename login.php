@@ -65,7 +65,9 @@
                         $listaRolesDelUsuario = $objControlRolUsuario->consultar($sql, $parametros);
                         //$listaRoles = $objControlRolUsuario->consultar($sql2);
 
-
+                        /**
+                         * Se crean las sesiones arregloRoles y listaRolesDelUsuario
+                         */
                         $_SESSION['arregloRoles']=$arregloRoles;
                         $_SESSION['listaRolesDelUsuario']=$listaRolesDelUsuario;
                         /**
@@ -73,6 +75,9 @@
                          */
                         header('Location: vista/vistaHome.php'); 
                 }else{
+                    /**
+                     * Sesion para el control de errores al igresar los datos del login
+                     */
                     $_SESSION['msj'] = 'Verifique los datos ingresados';
                 }           	
             }			         
@@ -91,10 +96,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!------ Include the above in your HEAD tag ---------->
 
-<!--author:starttemplate-->
-<!--reference site : starttemplate.com-->
 <!DOCTYPE html>
 <html lang="en">
     <head>

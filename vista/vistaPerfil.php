@@ -6,18 +6,25 @@ ob_start();
     include '../controlador/ControlEntidad.php';
     include '../controlador/ControlConexionPdo.php';
     include '../modelo/Entidad.php';
+    /**
+     * Se inicia la sesion con las variables creadas en el login
+     */
     session_start();
     $listaRolesDelUsuario = $_SESSION['listaRolesDelUsuario'];
     $arregloRoles = $_SESSION['arregloRoles'];
-    //var_dump($arregloRoles[1]);
+    /**
+     * Se decide si se da acceso al usuario
+     */
     if($_SESSION['email']==null)header('Location: ../login.php');
-    //var_dump($listaRolesDelUsuario);
+    
     $listaRolesDelUsuario = $_SESSION['listaRolesDelUsuario'];
     $navbar = 0;
     $bandera1 = false;
-	//var_dump($listaRolesDelUsuario);
+	
 	for($i=0;$i<count($listaRolesDelUsuario);$i++){
-        
+        /**
+         * Control de Rol, con esto se administran los permisos del usuario y tambien el navbar a mostrar
+         */
         if($listaRolesDelUsuario[$i]->__get('name')=="Admin-Global"){
             $navbar=0;
             $bandera1 = true;
@@ -38,25 +45,35 @@ ob_start();
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Perfil</title>
 <link rel="shortcut icon" href="../vista/img/logo-DBD-01.png">
+<!--
+    Estilos 
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" id="bootstrap-css">
 <link rel="stylesheet" href="../vista/css/misCss1.css">
 <link rel="stylesheet" href="../vista/css/vistaPerfil.css">
+<!--
+    JS
+-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="js/misFunciones.js"></script>
-<script src="js/misFunciones2.js"></script>
-<link rel="shortcut icon" href="../vista/img/time-23.png">
-<!--for how-section1-->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/misFunciones.js"></script>
+<script src="js/misFunciones2.js"></script>
+
+
+
 </head>
 <body>
-    <!--Se agrega una barra de navegación para acceder a los CRUDs, y agregar la funcionalidad "buscar"-->	
+     <!--
+        Se seleciona la barra de navegación para mostrar según el rol (Esto puede ser mejorado dando este acceso
+        según el rol directamente en navbar.php a cada uno lo los apartados del menú)
+    -->	
         <div class="navBar">
                 <?php if($navbar==0){
                     require('./navbar.php');
@@ -70,10 +87,6 @@ ob_start();
                     <div class="col-md-4">
                         <div class="profile-img">
                             <img src="../vista/img/avatar_hombre.png" alt=""/>
-                            <!--<div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>-->
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -95,9 +108,6 @@ ob_start();
                             </ul>
                         </div>
                     </div>
-                    <!--<div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>-->
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -118,15 +128,7 @@ ob_start();
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <!--<div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>-->
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">                                       
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="name-text">Nombre</label>

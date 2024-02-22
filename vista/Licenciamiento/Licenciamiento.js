@@ -1,3 +1,18 @@
+$(document).ready(function() {
+    $('#tableId').DataTable({
+        dom: 'lBfrtip',
+        lengthMenu: [10, 25, 50, 75, 100], // Define las opciones del selector de cantidad de registros por vista
+        pageLength: 10, // Define la cantidad de registros por defecto por vista
+        buttons: [
+            {
+                extend:'excel',			
+                titleAttr:'Export to Excel',
+                text: '<i class="material-icons file-excel">description</i>' //Se añade el icono utilizando material-icons
+            }
+        ]            
+    });
+});
+
 async function editModal(IdElemento,TableName) {
     // Realizar una solicitud AJAX 
     var xhttp = new XMLHttpRequest();
@@ -26,7 +41,6 @@ async function editModal(IdElemento,TableName) {
     xhttp.open("GET", url, true);
     xhttp.send();
 }
-
 
 
 

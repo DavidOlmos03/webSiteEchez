@@ -6,21 +6,26 @@ ob_start();
 	include '../../controlador/ControlEntidad.php';
 	include '../../controlador/ControlConexionPdo.php';
 	include '../../modelo/Entidad.php';
-
+	/**
+     * Se inicia la sesion con las variables creadas en el login
+     */
   	session_start();
   	if($_SESSION['email']==null)header('Location: http://localhost/webSiteEchez/login.php');
 
   	$permisoParaEntrar=false;
 	$listaRolesDelUsuario = $_SESSION['listaRolesDelUsuario'];
-	//var_dump($listaRolesDelUsuario);
+
 	
 	for($i=0;$i<count($listaRolesDelUsuario);$i++){
 		if($listaRolesDelUsuario[$i]->__get('name')=="Admin" || $listaRolesDelUsuario[$i]->__get('name')=="Admin-Global")
 		$permisoParaEntrar=true;
 	}
+
+	/**
+	 * Se escoge el navbar a mostrar, según el rol del usuario
+	 */
 	$navbar = 0;
 	$bandera1 = false;
-	//var_dump($listaRolesDelUsuario);
 	for($i=0;$i<count($listaRolesDelUsuario);$i++){
         
         if($listaRolesDelUsuario[$i]->__get('name')=="Admin-Global"){
@@ -39,7 +44,11 @@ ob_start();
 	
 	$objControlAlquilado = new ControlEntidad('alquilado');
 
-	$statusFilter = $_GET['status'] ?? 'activos'; // Obtener el filtro de estado desde la URL
+	/**
+	 * Se obtiene el estado
+	 */
+	
+	$statusFilter = $_GET['status'] ?? ''; // Obtener el filtro de estado desde la URL
 	$conditions = [];
 
 	if ($statusFilter === 'activos') {
@@ -48,7 +57,11 @@ ob_start();
     	$conditions['Status_PC'] = 0;
 	}
 
+	/**
+	 * Se hace el listado según la condición establecida anteriormete
+	 */
 	$arregloAlquilado = $objControlAlquilado->listar($conditions);
+	/*$arregloAlquilado = $objControlAlquilado->listar();*/
 	$TablaName ='alquilado';
 	$boton = $_POST['bt'] ?? '';//toma del arreglo post el value del bt	
 	$Id = $_POST['txtId'] ?? '';
@@ -63,22 +76,27 @@ ob_start();
 	$Domain = $_POST['txtDomain'] ?? '';
 	$Status_PC = $_POST['txtStatus_PC'] ?? '';
 	$dateUpdate_Date = $_POST['txtdateUpdate_Date'] ?? '';
-	//if (isset($_POST['listbox1'])) $listbox1 = $_POST['listbox1'];
-	//var_dump($listbox1);
+
 	switch ($boton) {
+		/**
+		 * Botones que pueden ser utiles
+		 */
+		/*
 		case 'Guardar':
-			//session_start();
-            //$_SESSION['msj'] = "se registró el usuario de forma correcta";
+			/*
 			$datosAlquilado = ['User_Name'=> $User_Name,'Serial'=> $Serial,'PC_Name'=> $PC_Name,'Installation_Date'=> $Installation_Date,'Plate_PC'=> $Plate_PC,'Specifications'=> $Specifications,
-	        'Ram'=>$Ram,'Desktop_Laptop'=> $Desktop_Laptop,'Domain'=> $Domain,'Status_PC'=> $Status_PC,'dateUpdate_Date'=> $dateUpdate_Date];
+	    	'Ram'=>$Ram,'Desktop_Laptop'=> $Desktop_Laptop,'Domain'=> $Domain,'Status_PC'=> $Status_PC,'dateUpdate_Date'=> $dateUpdate_Date];
 			$objAlquilado = new Entidad($datosAlquilado);
 			$objControlAlquilado = new ControlEntidad('Alquilado');
 			$objControlAlquilado->guardar($objAlquilado);
 			
 			$bandera = 1;
-			header('Location: vistaAlquilado.php');			
+			header('Location: vistaAlquilado.php');		
+			 
+				
 			break;
 		case 'Consultar':
+			/*
 			$datosAlquilado = ['Serial'=>$Serial];
 			$objAlquilado = new Entidad($datosAlquilado);
 			$objControlAlquilado = new ControlEntidad('Alquilado');
@@ -101,9 +119,10 @@ ob_start();
 				// Manejar el caso en que $objAlquilado es nulo
 				echo "El PC Alquilado no se encontró.";
 			}							
-			//var_dump($arregloRolesConsulta);*/
+			//var_dump($arregloRolesConsulta);
 			break;
 		case 'Modificar': 
+			/*
 			$datosAlquilado = ['User_Name'=> $User_Name,'Serial'=> $Serial,'PC_Name'=> $PC_Name,'Installation_Date'=> $Installation_Date,'Plate_PC'=> $Plate_PC,'Specifications'=> $Specifications,
 	        'Ram'=>$Ram,'Desktop_Laptop'=> $Desktop_Laptop,'Domain'=> $Domain,'Status_PC'=> $Status_PC,'dateUpdate_Date'=> $dateUpdate_Date];
 			$objAlquilado = new Entidad($datosAlquilado);
@@ -114,12 +133,13 @@ ob_start();
 			header('Location: vistaAlquilado.php');
 			break;
 		case 'Borrar':
+			/*
 			$arrAlquilado=['Serial' => $Serial];
 			$objAlquilado = new Entidad($arrAlquilado);
 			$objControlAlquilado = new ControlEntidad('Alquilado');
 			$objControlAlquilado->borrar('Serial', $Serial);
 			header('Location: vistaAlquilado.php');
-			break;
+			break;*/
 		case 'Limpiar':
 			$Id = "";
 			$User_Name = "";
@@ -147,53 +167,55 @@ ob_start();
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title class="rented-text">PCs Alquilados</title>
 <link rel="shortcut icon" href="../img/logo-DBD-01.png">
+<!--
+    Estilos 
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/misCss1.css">
-<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<!--
+    JS
+-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="../js/misFunciones2.js"></script>
-<script src="../Alquilado/Alquilado.js"></script>
-<script src="../js/buscador.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!--
-	Para dataTable
--->
-<link href="https://cdn.datatables.net/1.13.10/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet">
- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="../js/misFunciones2.js"></script>
+<script src="../Alquilado/Alquilado.js"></script>
+<script src="../js/buscador.js"></script>
+<!--
+	Para dataTable
+-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.10/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.13.10/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+
+
 </head>
 <body>
-	<!--<script>alert('Usuario registrado');</script>-->
-<!--<div class="container-xl">-->
-	<!--Se agrega una barra de navegación para acceder a los CRUDs, y agregar la funcionalidad "buscar"-->	
+	
+	
+	 <!--
+        Se seleciona la barra de navegación para mostrar según el rol (Esto puede ser mejorado dando este acceso
+        según el rol directamente en navbar.php a cada uno lo los apartados del menú)
+    -->	
 	<div class="navBar">
 		<?php if($navbar==0){
 			require('../navbar.php');
 		} else if ($navbar==1) {require('../navbar_admin.php');}
 		?>
     </div>
-	<!--
-	<script>
-		$(document).ready( function () {
-			$('#tableId').DataTable();
-		} );
-	</script>-->
-	<div class="table-responsive">
-		
+	<div class="table-responsive">		
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
@@ -205,39 +227,25 @@ ob_start();
 					</div>
 				</div>				
 			</div>
+			<!--
+				Script para cambiar el estado de los datos a mostrar en la tabla (Activos, Inactivos, Todos) en la url 
+			-->
+			<script>
+				function cambiarEstado(status) {
+				var nuevoUrl = window.location.href.split('?')[0] + '?status=' + status;
+				history.replaceState(null, '', nuevoUrl);
+				}
+			</script>
 			<div class="row">
 				<div class="col-sm-6">	
-					<button id="btnActivos" class="btn btn-activos active-text" data-status="activos"><span>Activos</span></button>
+					<button id="btnActivos" class="btn btn-activos active-text" data-status="activos" onclick="cambiarEstado('activos')"><span>Activos</span></button>
 					|
-					<button id="btnInactivos" class="btn btn-inactivos inactive-text" data-status="inactivos"><span>Inactivos</span></button>
+					<button id="btnInactivos" class="btn btn-inactivos inactive-text" data-status="inactivos" onclick="cambiarEstado('inactivos')"><span>Inactivos</span></button>
 					|
-					<button id="btnTodos" class="btn btn-inactivos all-text" data-status=""><span>Todos</span></button>	
-
+					<button id="btnTodos" class="btn btn-inactivos all-text" data-status="" onclick="cambiarEstado('')"><span>Todos</span></button>	
 				</div>
-				<!--
-					<div class="col-sm-6">						
-						<a class="btn btn-activos active-text" href="vistaAlquilado.php?status=activos"><span>Activos</span></a>
-						|
-						<a class="btn btn-inactivos inactive-text" href="vistaAlquilado.php?status=inactivos"><span>Inactivos</span></a>
-						|
-						<a class="btn btn-inactivos all-text" href="vistaAlquilado.php?status=''"><span>Todos</span></a>
-					</div>-->
-					<div class="col-sm-6">
-						
-					</div>
 			</div>
-			<!--
-				Buscador
-			
-			<div class="container-fluid">
-				<form class="d-flex">
-				<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" 
-				placeholder="Search...">
-				<hr>
-				</form>
-			</div>-->
-			
-			<table class="table table-striped table-hover table_id" id="tableId">
+			<table class="table table-striped table-hover table_id" id="tableId">	
 				<thead>
 					<tr>
 						<th class="user-text">Usuario</th>
@@ -258,13 +266,7 @@ ob_start();
 					<?php
 					for($i = 0; $i < count($arregloAlquilado); $i++){
 					?>
-						<tr>
-							<!--<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td>	-->					
+						<tr>											
 							<td><?php echo $arregloAlquilado[$i]->__get('User_Name');?></td>
 							<td><?php echo $arregloAlquilado[$i]->__get('Serial');?></td>
 							<td><?php echo $arregloAlquilado[$i]->__get('PC_Name');?></td>

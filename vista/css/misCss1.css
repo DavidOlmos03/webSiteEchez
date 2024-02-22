@@ -250,6 +250,9 @@ table.table .avatar {
 	font-weight: normal;
 }
 
+
+
+
 /**Estilos unicamente para vistaAlquilados*/
 /*.active-text:hover,
 .inactive-text:hover,
@@ -271,7 +274,24 @@ table.table .avatar {
     background-color: #243e8473;
 }
 
+
+
 /**Estilos unicamente para vistaLicenciamiento*/
 .dataTables_length {
-    margin-right: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-right: 50px; /* Puedes ajustar el valor según sea necesario */
+}
+
+.dt-buttons .buttons-excel {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+	width: 35px;
+	height: 35px;
+	padding: 2px 3px 3px 1px !important;
+}
+
+
+.dt-buttons .buttons-excel:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
 }

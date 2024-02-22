@@ -145,6 +145,8 @@ ob_start();
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -195,23 +197,8 @@ ob_start();
 		} else if ($navbar==1) {require('../navbar_admin.php');}
 		?>
     </div>
-	<script>
-    $(document).ready(function() {
-        $('#tableId').DataTable({
-            dom: 'lBfrtip',
-			lengthMenu: [10, 25, 50, 75, 100], // Define las opciones del selector de cantidad de registros por vista
-            pageLength: 10, // Define la cantidad de registros por defecto por vista
-            buttons: [
-				{
-					extend:'excel',			
-					titleAttr:'Export to Excel'
-				}
-            ]            
-        });
-    });
-</script>
-
-	<div class="table-responsive" style="margin-top: 5%">
+	
+	<div class="table-responsive">
 		
 		<div class="table-wrapper">
 			<div class="table-title">

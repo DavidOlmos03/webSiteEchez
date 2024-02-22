@@ -5,7 +5,9 @@ if (isset($_GET['User_Name']) && isset($_GET['Serial']) && isset($_GET['PC_Name'
     include '../../controlador/ControlEntidad.php';
     include '../../controlador/ControlConexionPdo.php';
     include '../../modelo/Entidad.php';
-    // Obtener los datos del formulario
+    /**
+     *Obtener los datos del formulario
+     */ 
     $User_Name = $_GET['User_Name'];
     $Serial = $_GET['Serial'];
     $PC_Name = $_GET['PC_Name'];
@@ -18,17 +20,15 @@ if (isset($_GET['User_Name']) && isset($_GET['Serial']) && isset($_GET['PC_Name'
     $Status_PC = $_GET['Status_PC'];
     $dateUpdate_Date = $_GET['dateUpdate_Date'];
     
-
+    /**
+     * Se procede a guardar los datos
+     */
     $datosAlquilado = ['User_Name'=> $User_Name,'Serial'=> $Serial,'PC_Name'=> $PC_Name,'Installation_Date'=> $Installation_Date,'Plate_PC'=> $Plate_PC,'Specifications'=> $Specifications,
 	        'Ram'=>$Ram,'Desktop_Laptop'=> $Desktop_Laptop,'Domain'=> $Domain,'Status_PC'=> $Status_PC,'dateUpdate_Date'=> $dateUpdate_Date];
 			$objAlquilado = new Entidad($datosAlquilado);
 			$objControlAlquilado = new ControlEntidad('Alquilado');
 			$objControlAlquilado->guardar($objAlquilado);
-			
-			
-    
-    // Enviar una respuesta JSON al cliente
-   // echo json_encode(['success' => true]);
+		
     exit; 
 }
 ?>
